@@ -1,0 +1,97 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    li {
+        list-style: none;
+    }
+
+    .card-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        width: calc(65% - 40px);
+
+       
+
+        .card {
+            position: relative;
+            background: #f9f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 80%;
+            transition: all .3s ease;
+            margin-bottom: 20px;
+
+            &:hover {
+                transform: translateY(-7px);
+                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            }
+
+            .card-header {
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 40px;
+                    color: white;
+                    background-color: rgba(128, 128, 128, 0.554);
+                    padding: 5px;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    margin-right: 15px;
+
+                    &.income-expense {
+                        background-color: rgba(196, 82, 82, 0.554);
+                    }
+
+                    &.todo-icon{
+                        background-color: rgba(64, 185, 237, 0.554);
+                    }
+                }
+            }
+
+            .income-details {
+               
+                .month {
+                    h3 {
+                        font-size: 25px;
+                        font-weight: bold;
+                    }
+
+                    
+                }
+
+              
+                
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    
+
+    .container { 
+        .card-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-content: center;
+            width: calc(100%);
+            margin: 0 auto;
+
+            .card {
+                margin: 10px auto;
+            }
+        }
+    }
+}

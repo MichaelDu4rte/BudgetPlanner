@@ -1,0 +1,77 @@
+<app-side-nav></app-side-nav>
+
+<div class="container">
+  <div class="card-container">
+    <!---Income -->
+    <div class="card">
+      <div class="card-header">
+        <span class="icon income-icon">$</span>
+        <h2>Income</h2>
+      </div>
+      <hr />
+      <div class="income-details">
+        <div class="month">
+          <h3>Last Month</h3>
+          <ul>
+            <li *ngFor="let monthIncome of lastMonthsIncome">
+              {{ monthIncome }}
+            </li>
+          </ul>
+        </div>
+        <div class="month">
+          <h3>Total</h3>
+          <p>{{ currentMonthIncome }}</p>
+        </div>
+
+        <button class="button" (click)="onIncome()">View</button>
+      </div>
+    </div>
+    <!---Expense -->
+    <div class="card">
+      <div class="card-header">
+        <span class="icon income-expense">-$-</span>
+        <h2>Expense</h2>
+      </div>
+      <hr />
+      <div class="income-details">
+        <div class="month">
+          <h3>Last Month</h3>
+          <ul>
+            <li *ngFor="let monthExpense of lastMonthsExpense">
+              {{ monthExpense }}
+            </li>
+          </ul>
+        </div>
+        <div class="month">
+          <h3>Total</h3>
+          <p>{{ currentMonthExpense }}</p>
+        </div>
+
+        <button class="button" (click)="onExpense()">View</button>
+      </div>
+    </div>
+
+    <!---Expense -->
+    <div class="card">
+      <div class="card-header">
+        <span class="icon income-expense">T</span>
+        <h2>Total</h2>
+      </div>
+      <hr />
+      <div class="total-details">
+        <div class="total-item">
+          <h3>Current income</h3>
+          <p>{{ totalCurrentMonthIncome | currency }}</p>
+        </div>
+        <div class="total-item">
+          <h3>Current expense</h3>
+          <p>{{ totalCurrentMonthExpense | currency }}</p>
+        </div>
+        <div class="total-line">
+          <h3>Current Month Savings</h3>
+          <p>{{ totalCurrentMonthSavings | currency }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+<app-side-nav></app-side-nav>
+
+<div class="main-container">
+  <div class="container">
+    <h2>Income</h2>
+    <form [formGroup]="incomeForm" (ngSubmit)="onSubmit()" class="input-form">
+      <!-- Select Month-->
+      <div class="form-group">
+        <select
+          formControlName="month"
+          id="month"
+          class="form-control"
+          (change)="onChange($event)"
+        >
+          <option value="" disabled>Select Month</option>
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="March">March</option>
+        </select>
+      </div>
+
+      <div class="form-group"></div>
+
+      <div class="total-income">
+        Total income for {{ selectedMonth }} : ${{
+          calculateTotalIncome(selectedMonth)
+        }}
+      </div>
+
+      <div class="form-group">
+        <label for="investments">Investment:</label>
+        <select
+          formControlName="investments"
+          id="investments"
+          class="form-control"
+        >
+          <option value="" disabled>Select Investmentes</option>
+          <option value="401(K)">401(K)</option>
+          <option value="Stocks">Stocks</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="source">Source of income:</label>
+        <select formControlName="source" id="source" class="form-control">
+          <option value="" disabled>Select source</option>
+          <option value="Salary">Salary</option>
+          <option value="Freelacing">Freelacing</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="amount">Amount:</label>
+
+        <input
+          type="number"
+          formControlName="amount"
+          id="amount"
+          class="form-control"
+          placeholder="Enter amount"
+        />
+      </div>
+
+      <div class="form-group"></div>
+      <div class="form-group"></div>
+
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+        Add
+      </button>
+    </form>
+
+    <hr />
+    <h3>Income List {{ selectedMonth }}</h3>
+
+    <!--Table-->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>Amount</th>
+          <th>Investments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let income of getFilteredIncomes()">
+          <td>{{ income.source }}</td>
+          <td>{{ income.amount }}</td>
+          <td>{{ income.investments }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="input-form">
+      <button class="btn btn-primary" (click)="onBack()">Back</button>
+
+      <div class="form-group"></div>
+      <button class="btn btn-primary" (click)="saveForm()">Save</button>
+    </div>
+  </div>
+</div>

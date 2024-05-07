@@ -1,0 +1,58 @@
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+
+    .input-form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 20px;
+        margin-bottom: 20px;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+        }
+
+        .form-control {
+            padding: 12px;
+            border: 1px solid black;
+            border-radius: 6px;
+            transition: all .3s ease;
+            font-size: 15px;
+        }
+
+        .total-income {
+            text-align: center;
+        }
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        tr:hover {
+            background-color: #e2e6ea;;
+        }
+
+       tr:nth-cild(even) {
+        background-color: #f8f9f4;
+       }
+    }
+    
+  
+}
+
+
